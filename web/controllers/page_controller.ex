@@ -8,6 +8,6 @@ defmodule SpotTheStation.PageController do
   def city_to_ics(conn, _params) do
     conn
     |> put_resp_content_type("text/calendar")
-    |> text "VCALENDAR"
+    |> text("VCALENDAR")
   end
 end
