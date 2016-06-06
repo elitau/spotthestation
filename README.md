@@ -6,8 +6,11 @@ The .ics file is available at [https://spotthestation.ede.li/cologne.ics](https:
 Uses Nasa's [Spot the Station](https://spotthestation.nasa.gov) RSS Feed.
 
 
-
 ## Development
+
+### Next Todos:
+city_name |> create_url |> fetch_xml |> xml_to_events |> events_to_ics
+
 
 To start your Phoenix app:
 
