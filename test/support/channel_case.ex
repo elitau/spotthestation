@@ -20,11 +20,6 @@ defmodule SpotTheStation.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias SpotTheStation.Repo
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query, only: [from: 1, from: 2]
-
 
       # The default endpoint for testing
       @endpoint SpotTheStation.Endpoint
@@ -32,9 +27,6 @@ defmodule SpotTheStation.ChannelCase do
   end
 
   setup tags do
-    unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(SpotTheStation.Repo, [])
-    end
 
     :ok
   end

@@ -8,12 +8,3 @@ config :spot_the_station, SpotTheStation.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :spot_the_station, SpotTheStation.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "spot_the_station_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
