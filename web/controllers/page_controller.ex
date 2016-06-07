@@ -10,4 +10,10 @@ defmodule SpotTheStation.PageController do
     |> put_resp_content_type("text/calendar")
     |> text("VCALENDAR")
   end
+
+  # def city_to_ics(conn, %{"city_name" => city_name}) do
+  #   conn
+  #   |> put_resp_content_type("text/calendar")
+  #   |> text(CityToIcs.for(city_name))
+  # end
 end
