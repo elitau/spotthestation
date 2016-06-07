@@ -34,6 +34,7 @@ defmodule SpotTheStation.Mixfile do
      {:gettext, "~> 0.9"},
      {:httpoison, "~> 0.8.3"},
      {:exvcr, "~> 0.7.4"},
+     {:sweet_xml, "~> 0.6.1"},
      {:icalendar, github: "lpil/icalendar"},
      {:cowboy, "~> 1.0"}]
   end

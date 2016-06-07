@@ -8,21 +8,17 @@ defmodule SpotTheStation.CityToIcsTest do
   end
 
   @ics """
-    BEGIN:VCALENDAR
-    CALSCALE:GREGORIAN
-    VERSION:2.0
     BEGIN:VEVENT
     DESCRIPTION:Look up into the stars
-    DTEND:20151224T084500Z
-    DTSTART:20151224T083000Z
-    SUMMARY:ISS is above you for 6 minutes appearing 10° above W and disappearing 11° above E.
+    DTEND:20160607T222700Z
+    DTSTART:20160607T223200Z
+    SUMMARY:ISS is above you for 5 minutes appearing 20° above W and disappearing 10° above S.
     END:VEVENT
-    END:VCALENDAR
     """
 
   test "city_to_ics" do
     use_cassette "city_to_ics" do
-      assert @ics == CityToIcs.for('cologne')
+      assert CityToIcs.for('Cologne') =~ @ics
     end
   end
 end
