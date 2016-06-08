@@ -1,7 +1,5 @@
 defmodule CityToIcs do
   import SweetXml
-  @date_regex ~r/Date\: \w+ (?<month>\w+) (?<day>\d+), (?<year>\d+).*\<br/
-  @time_regex ~r/Time\: (?<hours>\d+)\:(?<minutes>\d+) (?<pm_am>.*)\<br/
 
   def for(city_name) do
     %ICalendar{ events: events(city_name) } |> ICalendar.to_ics
@@ -30,7 +28,7 @@ defmodule CityToIcs do
   defp item_to_event(item_as_xml) do
     item_as_xml
     |> extract_description
-    |> extract_attributes
+    |> EventAttributes.extract
     |> create_event
   end
 
@@ -38,30 +36,11 @@ defmodule CityToIcs do
     item_as_xml |> xpath(~x"./description/text()"s)
   end
 
-  defp extract_attributes(description) do
-    date = Regex.named_captures(@date_regex, description)
-    %{ "hours" => hours, "minutes" => minutes, "pm_am" => pm_am } = Regex.named_captures(@time_regex, description)
-    %{
-      start: {
-        {String.to_integer(date["year"]), 12, 24},
-        {to_hour(hours, pm_am), String.to_integer(minutes), 00}
-      },
-    }
-  end
-
-  defp to_hour(hours, pm_am) do
-    if pm_am == "AM" do
-      String.to_integer(hours)
-    else
-      String.to_integer(hours) + 12
-    end
-  end
-
-  defp create_event(%{:start => start}) do
+  defp create_event(%{start_time: start_time, end_time: end_time}) do
     %ICalendar.Event{
       summary: "summary",
-      dtstart: start,
-      dtend:   {{2015, 12, 24}, {8, 45, 00}},
+      dtstart: start_time,
+      dtend:   end_time,
       description: "Look up into the stars",
     }
   end
