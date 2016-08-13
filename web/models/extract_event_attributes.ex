@@ -64,8 +64,7 @@ defmodule EventAttributes do
   end
 
   defp duration(description) do
-    [duration] = Regex.run(@duration_regex, description, capture: :all_but_first)
-    duration |> String.to_integer
+    parse_attribute(@duration_regex, description) |> String.to_integer
   end
 
   defp summary(description) do
@@ -73,12 +72,15 @@ defmodule EventAttributes do
   end
 
   defp approach(description) do
-    [match] = Regex.run(@approach_regex, description, capture: :all_but_first)
-    String.trim(match)
+    parse_attribute(@approach_regex, description) |> String.trim
   end
 
   defp departure(description) do
-    [match] = Regex.run(@departure_regex, description, capture: :all_but_first)
-    String.trim(match)
+    parse_attribute(@departure_regex, description) |> String.trim
+  end
+
+  defp parse_attribute(regexp, description) do
+    [match] = Regex.run(regexp, description, capture: :all_but_first)
+    match
   end
 end
