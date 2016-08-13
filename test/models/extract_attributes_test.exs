@@ -10,4 +10,8 @@ defmodule SpotTheStation.EventAttributesTest do
   test "extract end" do
     assert {{2016, 12, 21}, {23, 2, 0}} == EventAttributes.extract(@description)[:end_time]
   end
+
+  test "summary" do
+    assert "ISS is above you for 3 minutes appearing 10° above W and disappearing 11° above E." == EventAttributes.extract(@description)[:summary]
+  end
 end

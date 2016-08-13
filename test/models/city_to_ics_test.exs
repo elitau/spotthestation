@@ -7,14 +7,23 @@ defmodule SpotTheStation.CityToIcsTest do
     :ok
   end
 
-  @ics """
-    BEGIN:VEVENT
-    DESCRIPTION:Look up into the stars
-    DTEND:20160607T222700Z
-    DTSTART:20160607T223200Z
-    SUMMARY:ISS is above you for 5 minutes appearing 20° above W and disappearing 10° above S.
-    END:VEVENT
-    """
+  @ics "BEGIN:VCALENDAR
+CALSCALE:GREGORIAN
+VERSION:2.0
+BEGIN:VEVENT
+DESCRIPTION:Look up into the stars
+DTEND:20160603T222400Z
+DTSTART:20160603T221800Z
+SUMMARY:ISS is above you for 6 minutes appearing 10° above W and disappearing 11° above E.
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Look up into the stars
+DTEND:20160604T000100Z
+DTSTART:20160603T235500Z
+SUMMARY:ISS is above you for 6 minutes appearing 10° above W and disappearing 13° above ESE.
+END:VEVENT
+END:VCALENDAR
+"
 
   test "city_to_ics" do
     use_cassette "city_to_ics" do

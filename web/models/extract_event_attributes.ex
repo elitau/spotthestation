@@ -2,12 +2,15 @@ defmodule EventAttributes do
   use Timex
   @date_regex ~r/Date\: \w+ (?<month>\w+) (?<day>\d+), (?<year>\d+).*\<br/
   @time_regex ~r/Time\: (?<hours>\d+)\:(?<minutes>\d+) (?<pm_am>.*)\<br/
-  @duration_regex ~r/Duration\: (?<minutes>\d+).*\<br/
+  @duration_regex ~r/Duration\:.*(?<minutes>\d+).*/
+  @approach_regex ~r/Approach\: (.*)\<br/
+  @departure_regex ~r/Departure\: (.*)\<br/
 
   def extract(description) do
     %{
       start_time: start_time(description),
-      end_time: end_time(description)
+      end_time: end_time(description),
+      summary: summary(description)
     }
   end
 
@@ -61,13 +64,21 @@ defmodule EventAttributes do
   end
 
   defp duration(description) do
-    try do
-      [duration] = Regex.run(~r/Duration\:.*(?<minutes>\d+).*/, description, capture: :all_but_first)
-      duration |> String.to_integer
-    rescue
-      e in MatchError -> e
-      IO.puts description
-      description
-    end
+    [duration] = Regex.run(@duration_regex, description, capture: :all_but_first)
+    duration |> String.to_integer
+  end
+
+  defp summary(description) do
+    "ISS is above you for #{duration(description)} minutes appearing #{approach(description)} and disappearing #{departure(description)}."
+  end
+
+  defp approach(description) do
+    [match] = Regex.run(@approach_regex, description, capture: :all_but_first)
+    String.trim(match)
+  end
+
+  defp departure(description) do
+    [match] = Regex.run(@departure_regex, description, capture: :all_but_first)
+    String.trim(match)
   end
 end

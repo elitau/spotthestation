@@ -36,9 +36,9 @@ defmodule CityToIcs do
     item_as_xml |> xpath(~x"./description/text()"s)
   end
 
-  defp create_event(%{start_time: start_time, end_time: end_time}) do
+  defp create_event(%{start_time: start_time, end_time: end_time, summary: summary}) do
     %ICalendar.Event{
-      summary: "summary",
+      summary: summary,
       dtstart: start_time,
       dtend:   end_time,
       description: "Look up into the stars",
