@@ -4,7 +4,7 @@ defmodule SpotTheStation.Mixfile do
   def project do
     [app: :spot_the_station,
      version: "0.0.1",
-     elixir: "~> 1.0",
+     elixir: "~> 1.3",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
@@ -17,7 +17,7 @@ defmodule SpotTheStation.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {SpotTheStation, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext, :timex]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,6 +36,7 @@ defmodule SpotTheStation.Mixfile do
      {:exvcr, "~> 0.7.4"},
      {:sweet_xml, "~> 0.6.1"},
      {:icalendar, github: "lpil/icalendar"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:timex, "~> 3.0"}]
   end
 end
