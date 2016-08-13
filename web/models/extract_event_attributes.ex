@@ -1,4 +1,5 @@
 defmodule EventAttributes do
+  use Timex
   @date_regex ~r/Date\: \w+ (?<month>\w+) (?<day>\d+), (?<year>\d+).*\<br/
   @time_regex ~r/Time\: (?<hours>\d+)\:(?<minutes>\d+) (?<pm_am>.*)\<br/
   @duration_regex ~r/Duration\: (?<minutes>\d+).*\<br/
@@ -20,8 +21,10 @@ defmodule EventAttributes do
   end
 
   defp end_time(description) do
-    {date, time} = start_time(description)
-    {date, put_elem(time, 1, elem(time, 1) + duration(description))}
+    date_time = Timex.to_datetime(start_time(description), "Europe/Berlin")
+    with_duration = Timex.shift(date_time, minutes: duration(description))
+    # Timex.format!(with_duration, "{ISO:Extended}")
+    Timex.to_erl(with_duration)
   end
 
   defp date(description) do

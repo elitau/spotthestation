@@ -10,8 +10,4 @@ defmodule SpotTheStation.EventAttributesTest do
   test "extract end" do
     assert {{2016, 12, 21}, {23, 2, 0}} == EventAttributes.extract(@description)[:end_time]
   end
-
-  test "add duration to hour with hours increment, eg. it is 14:59 and duration is 5 minutes" do
-
-  end
 end
