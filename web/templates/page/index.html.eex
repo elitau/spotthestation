@@ -13,7 +13,7 @@
       Go to their <a href="https://spotthestation.nasa.gov">Sighting Opportunities</a> and search there for your location. After submitting the form the URL Address of the page changes to something like <a href="https://spotthestation.nasa.gov/sightings/view.cfm?country=Germany&region=None&city=Cologne#.V6_IhpN96L4">https://spotthestation.nasa.gov/sightings/view.cfm?country=Germany&amp;region=None&amp;city=Cologne#.V6_IhpN96L4</a>
     </p>
     <p>
-      Replace country, region and city values in this URL http://spotthestation.ede.li/for_city?country=Germany&amp;region=None&amp;city=Cologne as the subscription feed address.
+      Replace country, region and city values in this URL http://spotthestation.ede.li/for_city?country=Germany&amp;region=None&amp;city=Cologne and use it as the subscription feed address.
     </p>
   </div>
 </div>
