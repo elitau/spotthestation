@@ -1,6 +1,11 @@
 # SpotTheStation
 
-Calendar with events of ISS Cologne, Germany flyovers. Subscribe to it with your Mac OS Calendar App.
+Calendar with events of ISS flyovers. Subscribe to it with your Mac OS Calendar App or any other iCalendar subscription compatible software.
+
+Pass in the params used at Nasa's [Spot the Station](https://spotthestation.nasa.gov) Search Form to this URL [https://spotthestation.ede.li/for_city](https://spotthestation.ede.li/for_city).
+
+For Cologne in Germany this would be [https://spotthestation.ede.li/for_city?country=Germany&region=None&city=Cologne]
+
 The .ics file is available at [https://spotthestation.ede.li/cologne.ics](https://spotthestation.ede.li/cologne.ics)
 
 Uses Nasa's [Spot the Station](https://spotthestation.nasa.gov) RSS Feed.
@@ -9,8 +14,7 @@ Uses Nasa's [Spot the Station](https://spotthestation.nasa.gov) RSS Feed.
 ## Development
 
 ### Next Todos:
-* Deployment
-* Alarm 5 Minutes before event
+* test mime type in page_controller_test
 
 
 To start your Phoenix app:

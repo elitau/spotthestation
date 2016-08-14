@@ -37,7 +37,7 @@ END:VCALENDAR
 
   test "city_to_ics" do
     use_cassette "city_to_ics" do
-      assert CityToIcs.for('Cologne') =~ @ics
+      assert CityToIcs.for("Cologne") =~ @ics
     end
   end
 end

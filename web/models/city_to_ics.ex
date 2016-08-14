@@ -1,16 +1,21 @@
 defmodule CityToIcs do
   import SweetXml
 
-  def for(city_name) do
-    %ICalendar{ events: events(city_name) } |> ICalendar.to_ics
+  def for("Cologne") do
+    cologne = %{ "country" => "Germany", "region" => "None", "city" => "Cologne" }
+    %ICalendar{ events: events(cologne) } |> ICalendar.to_ics
   end
 
-  defp events(city_name) do
-    city_name |> create_url |> fetch_xml |> xml_to_events
+  def for(location) do
+    %ICalendar{ events: events(location) } |> ICalendar.to_ics
   end
 
-  defp create_url(_city_name) do
-    "https://spotthestation.nasa.gov/sightings/xml_files/Germany_None_Cologne.xml"
+  defp events(location) do
+    location |> create_url |> fetch_xml |> xml_to_events
+  end
+
+  defp create_url(location) do
+    "https://spotthestation.nasa.gov/sightings/xml_files/#{location["country"]}_#{location["region"]}_#{location["city"]}.xml"
   end
 
   defp fetch_xml(url) do

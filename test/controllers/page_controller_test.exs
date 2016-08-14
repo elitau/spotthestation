@@ -12,4 +12,11 @@ defmodule SpotTheStation.PageControllerTest do
     # TODO: Test the mime type
     # assert response_content_type(conn, :"text/calendar")
   end
+
+  test "GET /for_city", %{conn: conn} do
+    conn = get conn, "/for_city", country: "Germany", region: "None", city: "Cologne"
+    assert response(conn, 200) =~ "VCALENDAR"
+    # TODO: Test the mime type
+    # assert response_content_type(conn, :"text/calendar")
+  end
 end
