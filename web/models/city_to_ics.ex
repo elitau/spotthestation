@@ -42,6 +42,7 @@ defmodule CityToIcs do
       dtstart: start_time,
       dtend:   end_time,
       description: "Look up into the stars",
+      alerts: [%ICalendar.Alert{minutes_before: 5}]
     }
   end
 end
