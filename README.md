@@ -2,14 +2,18 @@
 
 Calendar with events of ISS flyovers. Subscribe to it with your Mac OS Calendar App or any other iCalendar subscription compatible software.
 
-Pass in the params used at Nasa's [Spot the Station](https://spotthestation.nasa.gov) Search Form to this URL [https://spotthestation.ede.li/for_city](https://spotthestation.ede.li/for_city).
+Pass in the params used at Nasa's [Spot the Station](https://spotthestation.nasa.gov) Search Form to this URL [https://localhost:4000/for_city](https://localhost:4000/for_city).
 
-For Cologne in Germany this would be [https://spotthestation.ede.li/for_city?country=Germany&region=None&city=Cologne]
+For Cologne in Germany this would be [https://localhost:4000/for_city?country=Germany&region=None&city=Cologne]
 
-The .ics file is available at [https://spotthestation.ede.li/cologne.ics](https://spotthestation.ede.li/cologne.ics)
+The .ics file is available at [https://localhost:4000/cologne.ics](https://localhost:4000/cologne.ics)
 
-Uses Nasa's [Spot the Station](https://spotthestation.nasa.gov) RSS Feed.
+Uses Nasa's [Spot the Station](c) RSS Feed.
 
+
+##
+
+Deployed to [spotthestation.ede.li](spotthestation.ede.li)
 
 ## Development
 
