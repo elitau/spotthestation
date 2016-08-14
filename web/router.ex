@@ -16,9 +16,9 @@ defmodule SpotTheStation.Router do
   scope "/", SpotTheStation do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/",            PageController, :index
     get "/cologne.ics", PageController, :cologne
-    get "/for_city", PageController, :for_city
+    get "/for_city",    PageController, :for_city
   end
 
   # Other scopes may use custom stacks.
