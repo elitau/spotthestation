@@ -13,7 +13,7 @@ Uses Nasa's [Spot the Station](c) RSS Feed.
 
 ##
 
-Deployed to [spotthestation.ede.li](spotthestation.ede.li)
+Deployed to [spotthestation.ede.li](http://spotthestation.ede.li)
 
 ## Development
 
