@@ -1,0 +1,26 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://spotthestation.nasa.gov/sightings/xml_files/Germany_None_Cologne.xml"
+    },
+    "response": {
+      "body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n\t\t\t\t<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n\t\t\t\t  <channel>\n\t\t\t\t\t<title>SpotTheStation - Sightings for Cologne</title>\n\t\t\t\t\t<link>https://spotthestation.nasa.gov/sightings/view.cfm?country=Germany&amp;region=None&amp;city=Cologne</link>\n\t\t\t\t\t<description>Satellite Sightings Information for Cologne</description>\n\t\t\t\t\t<language>en-us</language>\n\t\t\t\t\t<pubDate>04 Jun 2016 02:14:27 GMT</pubDate>\n\t\t\t\t\t<lastBuildDate>04 Jun 2016 02:14:27 GMT</lastBuildDate>\n\t\t\t\t\t<managingEditor>HQ-spotthestation@mail.nasa.gov</managingEditor>\n\t\t\t\t\t<webMaster>HQ-spotthestation@mail.nasa.gov</webMaster>\n\t\t\t\t\t<atom:link href=\"https://spotthestation.nasa.gov/sightings/view.cfm?country=Germany&amp;region=None&amp;city=Cologne\" rel=\"self\" type=\"application/rss+xml\" />\n\t\t\t\t\t\t\t<item>\n\t\t\t\t<title>2016-06-03 ISS Sighting</title>\n\t\t\t\t<pubDate>04 Jun 2016 02:14:27 GMT</pubDate>\n\t\t\t\t<description>\n\t\t\t\tDate: Friday Jun 3, 2016 &lt;br/&gt;\n\t\t\t\tTime: 10:18 PM &lt;br/&gt;\n\t\t\t\tDuration: 6 minutes &lt;br/&gt;\n\t\t\t\tMaximum Elevation: 81&#176; &lt;br/&gt;\n\t\t\t\tApproach: 10&#176; above W &lt;br/&gt;\n\t\t\t\tDeparture: 11&#176; above E &lt;br/&gt;\n\t\t\t\t</description>\n\t\t\t\t<guid>https://spotthestation.nasa.gov/sightings/view.cfm?country=Germany&amp;region=None&amp;city=Cologne&amp;ss=FBE6A7DA-902B-F4C1-802ADE21B93E2D07</guid>\n\t\t\t\t</item> \t\t\t<item>\n\t\t\t\t<title>2016-06-03 ISS Sighting</title>\n\t\t\t\t<pubDate>04 Jun 2016 02:14:27 GMT</pubDate>\n\t\t\t\t<description>\n\t\t\t\tDate: Friday Jun 3, 2016 &lt;br/&gt;\n\t\t\t\tTime: 11:55 PM &lt;br/&gt;\n\t\t\t\tDuration: 6 minutes &lt;br/&gt;\n\t\t\t\tMaximum Elevation: 87&#176; &lt;br/&gt;\n\t\t\t\tApproach: 10&#176; above W &lt;br/&gt;\n\t\t\t\tDeparture: 13&#176; above ESE &lt;br/&gt;\n\t\t\t\t</description>\n\t\t\t\t<guid>https://spotthestation.nasa.gov/sightings/view.cfm?country=Germany&amp;region=None&amp;city=Cologne&amp;ss=FBE6A7DB-C974-46E2-4B34F74746B7EBF1</guid>\n\t\t\t\t</item> \t\t\t\t</channel></rss>\n",
+      "headers": {
+        "Date": "Tue, 07 Jun 2016 21:39:40 GMT",
+        "Server": "Apache",
+        "Last-Modified": "Sat, 04 Jun 2016 02:14:27 GMT",
+        "ETag": "\"7862aa-27e7-5346a660f26c0\"",
+        "Accept-Ranges": "bytes",
+        "Content-Length": "10215",
+        "Content-Type": "application/xml"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
