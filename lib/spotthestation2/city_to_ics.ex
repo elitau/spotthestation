@@ -2,12 +2,12 @@ defmodule CityToIcs do
   import SweetXml
 
   def for("Cologne") do
-    cologne = %{ "country" => "Germany", "region" => "None", "city" => "Cologne" }
-    %ICalendar{ events: events(cologne) } |> ICalendar.to_ics
+    cologne = %{"country" => "Germany", "region" => "None", "city" => "Cologne"}
+    __MODULE__.for(cologne)
   end
 
   def for(location) do
-    %ICalendar{ events: events(location) } |> ICalendar.to_ics
+    %ICalendar{events: events(location)} |> ICalendar.to_ics()
   end
 
   defp events(location) do
