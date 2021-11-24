@@ -25,7 +25,7 @@ defmodule CityToIcs do
   defp xml_to_events(xml) do
     xml
     |> xpath(~x"//item"l)
-    |> Enum.map(fn (item) ->
+    |> Enum.map(fn item ->
       item_to_event(item)
     end)
   end
@@ -33,7 +33,7 @@ defmodule CityToIcs do
   defp item_to_event(item_as_xml) do
     item_as_xml
     |> extract_description
-    |> EventAttributes.extract
+    |> EventAttributes.extract()
     |> create_event
   end
 
