@@ -3,7 +3,7 @@ defmodule SpotTheStation2.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")
-    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
+    assert html_response(conn, 200) =~ "Welcome to SpotTheStation iCal Feed"
   end
 
   test "GET /cologne.ics", %{conn: conn} do
