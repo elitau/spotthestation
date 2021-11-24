@@ -1,3 +1,25 @@
+defmodule SpotTheStation.TimeEntry do
+  defstruct [:year, :month, :day, :hour, :minute, :second]
+
+  def new({{yy, mm, dd}, {h, m, s}}) do
+    %__MODULE__{year: yy, month: mm, day: dd, hour: h, minute: m, second: s}
+  end
+end
+
+defimpl ICalendar.Value, for: SpotTheStation.TimeEntry do
+  def to_ics(%{year: yy, month: mm, day: dd, hour: h, minute: m, second: s}) do
+    import String, only: [pad_leading: 3]
+    year = yy |> to_string |> pad_leading(4, "0")
+    month = mm |> to_string |> pad_leading(2, "0")
+    day = dd |> to_string |> pad_leading(2, "0")
+    hour = h |> to_string |> pad_leading(2, "0")
+    min = m |> to_string |> pad_leading(2, "0")
+    sec = s |> to_string |> pad_leading(2, "0")
+
+    year <> month <> day <> "T" <> hour <> min <> sec
+  end
+end
+
 defmodule CityToIcs do
   import SweetXml
 
@@ -44,8 +66,8 @@ defmodule CityToIcs do
   defp create_event(%{start_time: start_time, end_time: end_time, summary: summary}) do
     %ICalendar.Event{
       summary: summary,
-      dtstart: start_time,
-      dtend:   end_time,
+      dtstart: SpotTheStation.TimeEntry.new(start_time),
+      dtend: SpotTheStation.TimeEntry.new(end_time),
       description: "Look up into the stars",
       alarms: [%ICalendar.Alarm{minutes_before: 5}]
     }
