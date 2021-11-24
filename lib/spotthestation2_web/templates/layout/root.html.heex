@@ -11,18 +11,15 @@
   </head>
   <body>
     <header>
+      <section class="phx-hero">
+  <p>Get calender events when the ISS is over you</p>
+  <h1>Welcome to SpotTheStation iCal Feed</h1>
+</section>
       <section class="container">
-        <nav>
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
-        </a>
+        <a title="NASA/Roscosmos, Public domain, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:ISS-56_International_Space_Station_fly-around_(07).jpg"><img alt="ISS-56 International Space Station fly-around (07)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/ISS-56_International_Space_Station_fly-around_%2807%29.jpg/800px-ISS-56_International_Space_Station_fly-around_%2807%29.jpg"></a>
+      </section>
+      <section class="container">
+        <p>Attribution: NASA/Roscosmos, Public domain, via Wikimedia Commons</p>
       </section>
     </header>
     <%= @inner_content %>
