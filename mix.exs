@@ -47,7 +47,8 @@ defmodule Spotthestation2.MixProject do
       {:exvcr, "~> 0.8"},
       {:sweet_xml, "~> 0.6.1"},
       {:icalendar, github: "elitau/icalendar"},
-      {:timex, "~> 3.0"}
+      {:timex, "~> 3.0"},
+      {:tix, "~> 0.4", only: [:dev, :test], runtime: false}
     ]
   end
 
