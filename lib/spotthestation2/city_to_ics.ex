@@ -54,13 +54,8 @@ defmodule CityToIcs do
 
   defp item_to_event(item_as_xml) do
     item_as_xml
-    |> extract_description
     |> EventAttributes.extract()
     |> create_event
-  end
-
-  def extract_description(item_as_xml) do
-    item_as_xml |> xpath(~x"./description/text()"s)
   end
 
   defp create_event(%{start_time: start_time, end_time: end_time, summary: summary}) do

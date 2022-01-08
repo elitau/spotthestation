@@ -1,22 +1,28 @@
 defmodule EventAttributes do
+  import SweetXml
   use Timex
   @date_regex ~r/Date\: \w+ (?<month>\w+) (?<day>\d+), (?<year>\d+).*\<br/
   @time_regex ~r/Time\: (?<hours>\d+)\:(?<minutes>\d+) (?<pm_am>.*)\<br/
   @duration_regex ~r/Duration\:.*(?<minutes>\d+).*/
   @approach_regex ~r/Approach\: (.*)\<br/
   @departure_regex ~r/Departure\: (.*)\<br/
+  @title_regex ~r/^\d\d\d\d-\d\d-\d\d (.+) Sighting$/
 
-  def extract(description) do
+  def extract(item) do
+    description = item |> xpath(~x"./description/text()"s)
+    title = item |> xpath(~x"./title/text()"s)
+
     %{
       start_time: start_time(description),
       end_time: end_time(description),
-      summary: summary(description)
+      summary: summary(description, title)
     }
   end
 
   defp start_time(description) do
-    %{ "month" => month, "day" => day, "year" => year } = date(description)
-    %{ "hours" => hours, "minutes" => minutes, "pm_am" => pm_am } = time(description)
+    %{"month" => month, "day" => day, "year" => year} = date(description)
+    %{"hours" => hours, "minutes" => minutes, "pm_am" => pm_am} = time(description)
+
     {
       {String.to_integer(year), to_month_number(month), String.to_integer(day)},
       {to_hour(hours, pm_am), String.to_integer(minutes), 00}
@@ -59,24 +65,30 @@ defmodule EventAttributes do
       "Sep" => 9,
       "Oct" => 10,
       "Nov" => 11,
-      "Dec" => 12,
+      "Dec" => 12
     }[month_text]
   end
 
   defp duration(description) do
-    parse_attribute(@duration_regex, description) |> String.to_integer
+    parse_attribute(@duration_regex, description) |> String.to_integer()
   end
 
-  defp summary(description) do
-    "ISS is above you for #{duration(description)} minutes appearing #{approach(description)} and disappearing #{departure(description)}."
+  defp summary(description, title) do
+    title = parse_attribute(@title_regex, title)
+
+    "#{title} is above you for #{duration(description)} minutes appearing #{approach(description)} and disappearing #{departure(description)}."
   end
 
   defp approach(description) do
-    parse_attribute(@approach_regex, description) |> String.trim
+    parse_attribute(@approach_regex, description) |> String.trim()
   end
 
   defp departure(description) do
-    parse_attribute(@departure_regex, description) |> String.trim
+    parse_attribute(@departure_regex, description) |> String.trim()
+  end
+
+  def title(xml_content) do
+    parse_attribute(@title_regex, xml_content) |> String.trim()
   end
 
   defp parse_attribute(regexp, description) do
